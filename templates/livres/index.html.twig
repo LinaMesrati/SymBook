@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LivresController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="container mt-5">
+<h1>Liste des Livres</h1>
+<table class="table table-striped">
+ <td>Titre</td>
+ <td>Isbn</td>
+ <td>Editeur</td>
+ <td>Date Edition</td>
+ <td>Prix(dn)</td>
+ <td>Resume</td>
+ <td colspan="2">Actions</td>
+ 
+
+ {% for l in livres  %}
+ <tr>
+ <td>{{l.titre}}</td>
+ <td>{{l.isbn}}</td>
+ <td>{{l.editeur}}</td>
+ <td>{{l.dateedition | date('m-d-Y')}}</td>
+ <td>{{l.prix}}</td>
+ <td><button class="btn btn-dark btn-sm"><a href={{url('admin_livres_show',{'id':l.id})}}>Voir détails..</a></button></td>
+ <td><button class="btn btn-warning ">Editer</button></td>
+ <td><button class="btn btn-danger ">Supprimer</button></td>
+ </tr>
+    
+ {% endfor %}
+ </table>
+</div>
+
+{% endblock %}

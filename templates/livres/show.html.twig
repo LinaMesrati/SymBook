@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LivresController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="container mt-5">
+<h1>Détail du {{l.titre}}</h1>
+<table class="table table-striped">
+<tr>
+ <th></th>
+ <th>Titre</th>
+ <th>Isbn</th>
+ <th>Slug</th>
+ <th>Editeur</th>
+ 
+ <th>Date Edition</th>
+ <th>Prix(dn)</th>
+ <th>Resume</th>
+</tr>
+ <tr>
+ <td><img src="{{l.image}}" alt=""></td>
+ <td>{{l.titre}}</td>
+ <td>{{l.isbn}}</td>
+ <td>{{l.slug}}</td>
+ <td>{{l.editeur}}</td>
+ <td>{{l.dateedition | date('m-d-Y')}}</td>
+ <td>{{l.prix}}</td>
+ <td>{{l.resume}}</td>
+ </tr>
+ </table>
+  
+</div>
+
+{% endblock %}
